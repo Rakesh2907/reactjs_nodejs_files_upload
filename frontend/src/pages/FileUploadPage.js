@@ -12,6 +12,11 @@ const FileUploadPage = () => {
     };
 
     const handleUpload = async () => {
+        if (selectedFiles === null) {
+            console.error('No files selected for upload.');
+            return;
+        }
+
         const formData = new FormData();
 
         for (let i = 0; i < selectedFiles.length; i++) {
@@ -25,8 +30,11 @@ const FileUploadPage = () => {
                 },
             });
 
-            // Optionally, clear the selected files state
-            setSelectedFiles(null);
+            // Optionally, clear the selected files state after a delay or use the response
+            setTimeout(() => {
+                setSelectedFiles(null);
+            }, 1000); // Adjust the delay as needed
+
             console.log(response.data);
 
         }catch (error) {
@@ -38,7 +46,7 @@ const FileUploadPage = () => {
   return (
     <div className='App'>
       <h3>Upload Multiple files</h3>  
-      <input type="file" multiple onChange={handleFileChange} />
+      <input type="file" multiple onChange={handleFileChange} required />
       <button onClick={handleUpload}>Upload Files</button>
     </div>
   )
