@@ -1,3 +1,4 @@
+import '../App.css';
 import React, { useState } from 'react';
 import { server } from '../server';
 import axios from 'axios';
@@ -35,7 +36,7 @@ const FileUploadPage = () => {
     }
 
   return (
-    <div>
+    <div className='App'>
       <h3>Upload Multiple files</h3>  
       <input type="file" multiple onChange={handleFileChange} />
       <button onClick={handleUpload}>Upload Files</button>
