@@ -36,6 +36,7 @@ const FileUploadPage = () => {
 
   return (
     <div>
+      <h3>Upload Multiple files</h3>  
       <input type="file" multiple onChange={handleFileChange} />
       <button onClick={handleUpload}>Upload Files</button>
     </div>
